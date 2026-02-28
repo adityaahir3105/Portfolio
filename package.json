@@ -5,13 +5,13 @@
   "main": "",
   "repository": "https://github.com/AdemCanCertel/website.git",
   "author": {
-    "name": "AdemCan Certel",
-    "email": "ademcancertel619@gmail.com",
-    "url": "https://ademcancertel.github.io"
+    "name": "Aditya Ahir",
+    "email": "ahiraditya31@gmail.com",
+    "url": "https://github.com/adityaahir3105"
   },
   "scripts": {
     "dev": "set NODE_OPTIONS=--openssl-legacy-provider && next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write --check './{src}/**/*.{js,ts,tsx,jsx}'"
