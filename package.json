@@ -10,7 +10,7 @@
     "url": "https://github.com/adityaahir3105"
   },
   "scripts": {
-    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && next dev",
+    "dev": "next dev",
     "build": "next build",
     "export": "next export",
     "start": "next start",
