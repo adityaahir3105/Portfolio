@@ -10,7 +10,7 @@
     "url": "https://ademcancertel.github.io"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

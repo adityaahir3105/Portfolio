@@ -2,52 +2,138 @@ import Link from 'next/link';
 import Tech from '../components/Tech';
 import Repo from '../components/Repository/Repo';
 import Edu from '../components/Education';
+import Experience from '../components/Experience';
 import Head from 'next/head';
+import { useState, useEffect } from 'react';
 
 export default function HomePage() {
-    return  (
-    <>
-      <Head>
-            <link rel="shortcut icon" href="https://media.discordapp.net/attachments/870311702347018250/884454889240006716/Bugs_Banny-AdemCan.jpg" />
-            <title>Home - AdemCan C.</title>
-            <meta name="description" content="A young student who knows JavaScript and loves programming." />
-            <meta name="keywords" content="ademcan, frontend, ademcandev" />
-            <meta name="theme-color" content="#41B883"/>
-            <meta property="og:image"content="https://media.discordapp.net/attachments/870311702347018250/884454889240006716/Bugs_Banny-AdemCan.jpg" />
-        </Head>
+    const [isVisible, setIsVisible] = useState(false);
+    
+    useEffect(() => {
+        setIsVisible(true);
+    }, []);
 
-        <main>
-        <div className="full-container flex">
-            <div className="space-y-4">
-            <h1 className="text-4xl font-semibold text-white"><Link href="/">Hi, I'm AdemCan Certel</Link></h1>
-            <p className="mt-5 font-normal leading-relaxed">
-                Hi, I'm Front End Developer and a high school student, 
-                I have about 5 years of experience with JavaScript. 
-                NextJS, NuxtJS, ReactJS are the technologies I use all the time. <Link href="/about">(Would you like to learn more about me)</Link>
-            </p>
-            </div>
-        </div>
-        
-        <div className="full-container mt-10">
-            <Tech/>
-        </div>
+    const highlights = [
+        { label: '3.7+ Years', desc: 'Experience' },
+        { label: '5M+', desc: 'Quotes/Month' },
+        { label: '99.9%', desc: 'Uptime' },
+        { label: '10K+', desc: 'Events/Sec' },
+    ];
 
-        <div className="full-container mt-20">
-            <Repo/>
-        </div>
+    return (
+        <>
+            <Head>
+                <link rel="shortcut icon" href="/favicon.ico" />
+                <title>Aditya Ahir | Software Engineer</title>
+                <meta name="description" content="Software Engineer specializing in AI-powered backend systems, microservices, and scalable solutions. 3.7+ years at Lowe's India." />
+                <meta name="keywords" content="Aditya Ahir, Software Engineer, Java, Spring Boot, AI, Microservices, Backend Developer" />
+                <meta name="theme-color" content="#6366f1" />
+                <meta property="og:title" content="Aditya Ahir | Software Engineer" />
+                <meta property="og:description" content="Building AI-powered backend systems and microservices that handle millions of transactions." />
+            </Head>
 
-        <div className="full-container mt-10">
-            <Edu/>
-        </div>
-        </main>
+            <main>
+                {/* Hero Section */}
+                <section className={`full-container transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                    <div className="space-y-6">
+                        <div className="flex items-center space-x-2">
+                            <span className="inline-block w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                            <span className="text-green-400 text-sm font-medium">Available for opportunities</span>
+                        </div>
+                        
+                        <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+                            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Aditya Ahir</span>
+                        </h1>
+                        
+                        <p className="text-xl text-gray-300 font-medium">
+                            Software Engineer at <span className="text-indigo-400 font-semibold">Lowe's India</span>
+                        </p>
+                        
+                        <p className="text-gray-400 leading-relaxed max-w-2xl text-lg">
+                            I build <span className="text-white font-medium">AI-powered backend systems</span> and 
+                            <span className="text-white font-medium"> microservices architectures</span> that handle millions of transactions. 
+                            Expert in Spring Boot, AI agents, and automation with focus on measurable business impact.
+                        </p>
 
-        <footer className="w-full bottom-0 text-white bg-gray-900 bg-opacity-50">
-            <div className="py-3 px-3 mx-auto flex items-center sm:flex-row flex-col">
-                <p className="text-sm font-semibold sm:ml-2 sm:pl-4 sm:mt-1 mt-4">
-                    © 2021 AdemCan Certel - <a href="https://github.com/AdemCanCertel/website">This site is open-source on</a>
-                </p>
-            </div>
-        </footer>
-    </>
-    )
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
+                            {highlights.map((item, idx) => (
+                                <div key={idx} className="bg-gray-800/50 border border-gray-700/50 rounded-xl p-4 text-center hover:border-indigo-500/50 transition-all duration-300 hover:transform hover:scale-105">
+                                    <div className="text-2xl font-bold text-white">{item.label}</div>
+                                    <div className="text-sm text-gray-400">{item.desc}</div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* CTA Buttons */}
+                        <div className="flex flex-wrap gap-4 pt-4">
+                            <a href="mailto:ahiraditya31@gmail.com" 
+                               className="inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25">
+                                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                Get In Touch
+                            </a>
+                            <a href="https://github.com/adityaahir3105" target="_blank" rel="noopener noreferrer"
+                               className="inline-flex items-center px-6 py-3 border border-gray-600 hover:border-gray-500 text-white font-medium rounded-lg transition-all duration-300 hover:bg-gray-800">
+                                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                                </svg>
+                                View GitHub
+                            </a>
+                            <a href="/Aditya_Ahir_Resume.pdf" download
+                               className="inline-flex items-center px-6 py-3 border border-gray-600 hover:border-gray-500 text-white font-medium rounded-lg transition-all duration-300 hover:bg-gray-800">
+                                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Download Resume
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Skills Section */}
+                <section className="full-container mt-20">
+                    <Tech />
+                </section>
+
+                {/* Experience Section */}
+                <section className="full-container mt-20">
+                    <Experience />
+                </section>
+
+                {/* Projects Section */}
+                <section className="full-container mt-20">
+                    <Repo />
+                </section>
+
+                {/* Education Section */}
+                <section className="full-container mt-20 mb-20">
+                    <Edu />
+                </section>
+            </main>
+
+            {/* Footer */}
+            <footer className="border-t border-gray-800 bg-gray-900/50">
+                <div className="full-container py-8">
+                    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                        <div className="text-gray-400 text-sm">
+                            © {new Date().getFullYear()} Aditya Ahir. Built with Next.js & Tailwind CSS
+                        </div>
+                        <div className="flex space-x-6">
+                            <a href="https://github.com/adityaahir3105" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg>
+                            </a>
+                            <a href="https://linkedin.com/in/adityaahir01" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                            <a href="mailto:ahiraditya31@gmail.com" className="text-gray-400 hover:text-white transition-colors">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </>
+    );
 } 
